@@ -86,8 +86,8 @@ const getBlog = async(req, res) => {
         const blogToSkip = (Number(page)-1)*Number(limit)
 
         const blogs = await Blog.find({
-            title: { $regex: search, $options: "i" } ,
-            status: "published"
+            title: { $regex: search, $options: "i" }
+            // status: "published"
         }).skip(blogToSkip).limit(Number(limit))
 
         return res
