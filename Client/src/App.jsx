@@ -7,7 +7,7 @@ function App() {
 
   const getBlogs = async () => {
     try {
-      const res = await axios.get(`${import.meta.env.VITE_SERVER}/blog/get?search=blog&page=1&limit=10`, {withCredentials:true})
+      const res = await axios.get(`${import.meta.env.VITE_SERVER}/blog/get?search=&page=1&limit=10`, {withCredentials:true})
       if( res.status == 200 ){
         setBlogs(res.data.data)
       }
@@ -26,7 +26,7 @@ function App() {
         <h1 className="text-3xl font-bold underline">
           Blog System
         </h1>
-        <div className="flex gap-5 overflow-auto" >
+        <div className="flex gap-5 overflow-hidden " >
           {blogs && blogs.map( (blog) => (
             <div className="bg-black rounded-2xl p-4" > 
               <h2>{blog.title}</h2>
